@@ -1,0 +1,1 @@
+D:\aula_vuejs>npm install vue vue-resource bootstrap font-awesome --save

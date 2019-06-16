@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Books</title>
+	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="node_modules/font-aewsome/css/font-awesome.css">
+</head>
+<body>
+	<div class="container" id="app">
+		<div class="row">
+			<h1>Books</h1>
+			<div class="well">
+				<input type="text" type="search" v-model="MySearch" class="form-control" placeholder="Pesquisar">
+			</div>
+		</div>	
+		<div class="row">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Title</th>
+						<th>Value</th>
+						<th>Descricption</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="book in books | filterBy MySearch 'title' 'description'">
+						<td>{{book.id}}</td>
+						<!--<td>{{book.title | pluralize book.title }}</td>-->
+						<td>{{book.title | uppercase }}</td>
+						<td>{{book.value | currency 'R$'}}</td>
+						<td>{{book.description}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script src="node_modules/vue/dist/vue.js"></script>
+	<!--
+	<script src="node_modules/vue/dist/vue-resource.js"></script>
+	-->
+	<script src="node_modules/vue-resource/dist/vue-resource.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
